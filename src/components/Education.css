@@ -1,0 +1,88 @@
+.education{
+    padding:100px 10%;
+    text-align:center;
+}
+
+.education h2{
+    font-size:42px;
+    color:var(--primary);
+    margin-bottom:60px;
+}
+
+.education-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+
+    gap:35px;
+
+}
+
+.education-card{
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:35px;
+
+    transition:.35s;
+
+}
+
+.education-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:var(--primary);
+
+    box-shadow:0 15px 35px rgba(37,99,235,.18);
+
+}
+
+.education-icon{
+
+    font-size:55px;
+
+    margin-bottom:20px;
+
+}
+
+.education-card h3{
+
+    color:var(--text);
+
+    margin-bottom:15px;
+
+}
+
+.education-card h4{
+
+    color:var(--primary);
+
+    margin-bottom:12px;
+
+}
+
+.education-card span{
+
+    display:inline-block;
+
+    margin-bottom:20px;
+
+    color:var(--text-secondary);
+
+    font-weight:bold;
+
+}
+
+.education-card p{
+
+    line-height:1.8;
+
+    color:var(--text-secondary);
+
+}
