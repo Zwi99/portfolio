@@ -18,7 +18,7 @@ function Contact() {
           <FaEnvelope className="contact-icon" />
           <h3>Email</h3>
           <a href="mailto:zwivhuyamathada58@gmail.com">
-            YOUR_EMAIL
+            zwivhuyamathada58@gmail.com
           </a>
         </div>
 
