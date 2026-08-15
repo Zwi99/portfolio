@@ -1,23 +1,88 @@
+import { useEffect, useState } from 'react';
 import './Navbar.css';
 
 function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
+
+  const sections = [
+    { id: 'home', label: 'Home' },
+    { id: 'about', label: 'About' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'education', label: 'Education' },
+    { id: 'certifications', label: 'Certificates' },
+    { id: 'contact', label: 'Contact' },
+  ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 150;
+
+      let currentSection = 'home';
+
+      sections.forEach((section) => {
+        const element = document.getElementById(section.id);
+
+        if (element && scrollPosition >= element.offsetTop) {
+          currentSection = section.id;
+        }
+      });
+
+      setActiveSection(currentSection);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const handleNavClick = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <nav className="navbar">
 
-      <div className="logo">
+      <a
+        href="#home"
+        className="logo"
+        onClick={handleNavClick}
+      >
         ZM<span>.</span>
-      </div>
+      </a>
 
-      <ul className="nav-links">
+      <button
+        className={`menu-toggle ${menuOpen ? 'open' : ''}`}
+        onClick={() => setMenuOpen(!menuOpen)}
+        aria-label="Toggle navigation menu"
+        aria-expanded={menuOpen}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#certifications">Certificates</a></li>
-        <li><a href="#contact">Contact</a></li>
+      <ul className={`nav-links ${menuOpen ? 'active' : ''}`}>
+
+        {sections.map((section) => (
+          <li key={section.id}>
+            <a
+              href={`#${section.id}`}
+              className={
+                activeSection === section.id ? 'active-link' : ''
+              }
+              onClick={handleNavClick}
+            >
+              {section.label}
+            </a>
+          </li>
+        ))}
 
       </ul>
 

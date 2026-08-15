@@ -1,94 +1,440 @@
-.certifications{
+/* =========================================
+   CERTIFICATIONS
+========================================= */
 
-    padding:100px 10%;
-    text-align:center;
+.certifications {
+    padding: 120px 8%;
+    background: var(--background);
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.cert-container {
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.cert-heading {
+    max-width: 800px;
+    margin-bottom: 65px;
+}
+
+
+.cert-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: var(--primary);
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 2.5px;
+
+    margin-bottom: 18px;
+}
+
+
+.cert-label span {
+    width: 28px;
+    height: 3px;
+
+    background: var(--primary);
+
+    border-radius: 10px;
+}
+
+
+.cert-heading h2 {
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: clamp(40px, 5vw, 58px);
+
+    line-height: 1.12;
+
+    letter-spacing: -1.5px;
+}
+
+
+.cert-heading h2 span {
+    color: var(--primary);
+}
+
+
+.cert-heading p {
+    max-width: 700px;
+
+    margin-top: 22px;
+
+    color: var(--text-secondary);
+
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   GRID
+========================================= */
+
+.cert-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 22px;
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.cert-card {
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+/* top line */
+
+.cert-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background: linear-gradient(
+        90deg,
+        var(--primary),
+        #06b6d4
+    );
+}
+
+
+/* glow */
+
+.cert-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 160px;
+    height: 160px;
+
+    top: -90px;
+    right: -90px;
+
+    background: rgba(37, 99, 235, 0.08);
+
+    border-radius: 50%;
+
+    transition: 0.4s ease;
+}
+
+
+.cert-card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(37, 99, 235, 0.45);
+
+    box-shadow:
+        0 20px 45px rgba(37, 99, 235, 0.13);
+}
+
+
+.cert-card:hover::after {
+    transform: scale(1.5);
+}
+
+
+/* =========================================
+   TOP
+========================================= */
+
+.cert-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+
+    position: relative;
+
+    z-index: 1;
+}
+
+
+.cert-icon {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: rgba(37, 99, 235, 0.1);
+
+    color: var(--primary);
+
+    font-size: 28px;
+
+    transition: 0.35s ease;
+}
+
+
+.cert-card:hover .cert-icon {
+    transform: translateY(-4px) scale(1.05);
+
+    background: rgba(37, 99, 235, 0.16);
+}
+
+
+.cert-number {
+    color: var(--text-secondary);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    opacity: 0.7;
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.cert-content {
+    position: relative;
+
+    z-index: 1;
+}
+
+
+.cert-code {
+    display: inline-block;
+
+    color: var(--primary);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 10px;
+}
+
+
+.cert-content h3 {
+    color: var(--text);
+
+    font-size: 22px;
+
+    line-height: 1.35;
+
+    margin-bottom: 10px;
+}
+
+
+.cert-provider {
+    color: var(--text-secondary);
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    margin: 0;
+}
+
+
+/* =========================================
+   BOTTOM
+========================================= */
+
+.cert-bottom {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: 28px;
+
+    padding-top: 18px;
+
+    border-top: 1px solid var(--border);
+
+    position: relative;
+
+    z-index: 1;
+}
+
+
+.cert-category {
+    color: var(--text-secondary);
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+.cert-check {
+    color: #22c55e;
+
+    font-size: 17px;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.cert-footer {
+    margin-top: 55px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    color: var(--text-secondary);
+
+    font-size: 13px;
+
+    text-align: center;
+}
+
+
+.cert-footer svg:first-child {
+    color: #22c55e;
+}
+
+
+.cert-footer svg:last-child {
+    color: var(--primary);
+
+    font-size: 12px;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 850px) {
+
+    .certifications {
+        padding: 100px 6%;
+    }
+
+    .cert-grid {
+        grid-template-columns: 1fr;
+    }
 
 }
 
-.certifications h2{
 
-    font-size:42px;
-    color:var(--primary);
-    margin-bottom:20px;
+/* =========================================
+   MOBILE
+========================================= */
 
-}
+@media (max-width: 600px) {
 
-.cert-text{
+    .certifications {
+        padding: 80px 6%;
+    }
 
-    max-width:800px;
-    margin:0 auto 60px;
-    color:var(--text-secondary);
-    line-height:1.8;
-    font-size:18px;
+    .cert-heading {
+        margin-bottom: 45px;
+    }
 
-}
+    .cert-heading h2 {
+        font-size: 36px;
+        letter-spacing: -0.8px;
+    }
 
-.cert-grid{
+    .cert-heading p {
+        font-size: 15px;
+    }
 
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:30px;
+    .cert-card {
+        padding: 25px;
+    }
 
-}
+    .cert-content h3 {
+        font-size: 20px;
+    }
 
-.cert-card{
-
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:18px;
-    padding:35px;
-    transition:.35s;
-
-}
-
-.cert-card:hover{
-
-    transform:translateY(-10px);
-
-    border-color:var(--primary);
-
-    box-shadow:0 18px 40px rgba(37,99,235,.18);
+    .cert-footer {
+        font-size: 11px;
+    }
 
 }
 
-.cert-icon{
 
-    font-size:55px;
+/* =========================================
+   SMALL PHONES
+========================================= */
 
-    margin-bottom:20px;
+@media (max-width: 380px) {
 
-}
+    .certifications {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
 
-.cert-card h3{
+    .cert-heading h2 {
+        font-size: 31px;
+    }
 
-    color:var(--text);
-
-    margin-bottom:15px;
-
-    min-height:65px;
-
-}
-
-.cert-card h4{
-
-    color:var(--primary);
-
-    margin-bottom:15px;
-
-}
-
-.cert-card span{
-
-    display:inline-block;
-
-    background:rgba(37,99,235,.15);
-
-    color:var(--primary);
-
-    padding:8px 18px;
-
-    border-radius:30px;
-
-    font-weight:600;
+    .cert-card {
+        padding: 22px;
+    }
 
 }

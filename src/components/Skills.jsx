@@ -1,61 +1,81 @@
 import './Skills.css';
 
 function Skills() {
+  const skillCategories = [
+    {
+      icon: '💻',
+      title: 'Frontend',
+      description: 'Building responsive and user-focused web interfaces.',
+      skills: ['HTML5', 'CSS3', 'JavaScript', 'React'],
+    },
+    {
+      icon: '⚙️',
+      title: 'Backend',
+      description: 'Developing application logic and practical software solutions.',
+      skills: ['Java', 'C#', 'Python', 'PHP', '.NET'],
+    },
+    {
+      icon: '🗄️',
+      title: 'Database & Cloud',
+      description: 'Working with data storage and cloud technologies.',
+      skills: ['MySQL', 'AWS'],
+    },
+    {
+      icon: '🛠️',
+      title: 'Tools',
+      description: 'Development and collaboration tools used in my workflow.',
+      skills: ['Git', 'GitHub', 'VS Code', 'Visual Studio', 'Postman'],
+    },
+  ];
+
   return (
     <section className="skills" id="skills">
 
-      <h2>Technical Skills</h2>
+      <div className="section-heading">
+        <span className="section-label">MY TOOLKIT</span>
 
-      <p className="skills-text">
-        These are the technologies and tools I use to develop applications,
-        solve technical problems, and continuously improve my skills.
-      </p>
+        <h2>Technical Skills</h2>
+
+        <p className="skills-text">
+          A practical collection of technologies and tools I use to build,
+          troubleshoot and develop reliable technology solutions.
+        </p>
+      </div>
 
       <div className="skills-grid">
 
-        <div className="skill-category">
-          <h3>💻 Frontend</h3>
+        {skillCategories.map((category, index) => (
+          <div
+            className="skill-category"
+            key={category.title}
+            style={{ '--delay': `${index * 0.1}s` }}
+          >
 
-          <div className="tech-list">
-            <span>HTML5</span>
-            <span>CSS3</span>
-            <span>JavaScript</span>
-            <span>React</span>
+            <div className="skill-top">
+
+              <div className="skill-icon">
+                {category.icon}
+              </div>
+
+              <div>
+                <h3>{category.title}</h3>
+                <p>{category.description}</p>
+              </div>
+
+            </div>
+
+            <div className="tech-list">
+
+              {category.skills.map((skill) => (
+                <span key={skill}>
+                  {skill}
+                </span>
+              ))}
+
+            </div>
+
           </div>
-        </div>
-
-        <div className="skill-category">
-          <h3>⚙️ Backend</h3>
-
-          <div className="tech-list">
-            <span>Java</span>
-            <span>C#</span>
-            <span>Python</span>
-            <span>PHP</span>
-            <span>.NET</span>
-          </div>
-        </div>
-
-        <div className="skill-category">
-          <h3>🗄 Database & Cloud</h3>
-
-          <div className="tech-list">
-            <span>MySQL</span>
-            <span>AWS</span>
-          </div>
-        </div>
-
-        <div className="skill-category">
-          <h3>🛠 Tools</h3>
-
-          <div className="tech-list">
-            <span>Git</span>
-            <span>GitHub</span>
-            <span>VS Code</span>
-            <span>Visual Studio</span>
-            <span>Postman</span>
-          </div>
-        </div>
+        ))}
 
       </div>
 

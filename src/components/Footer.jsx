@@ -1,53 +1,102 @@
+import {
+  FaGithub,
+  FaLinkedin,
+  FaEnvelope,
+  FaArrowUp
+} from 'react-icons/fa';
+
 import './Footer.css';
-import { FaGithub, FaLinkedin, FaArrowUp } from 'react-icons/fa';
 
 function Footer() {
+
+  const currentYear = new Date().getFullYear();
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <footer className="footer">
 
-      <div className="footer-content">
+      <div className="footer-container">
 
-        <h3>Zwivhuya Mathada</h3>
+        <div className="footer-main">
 
-        <p>
-          Software Developer • IT Support Technician • AWS Certified
-        </p>
+          {/* BRAND */}
 
-        <div className="footer-social">
-
-          <a
-            href="https://github.com/Zwi99"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaGithub />
+          <a href="#home" className="footer-logo">
+            ZM<span>.</span>
           </a>
 
-          <a
-            href="https://www.linkedin.com/in/zwivhuya-mathada-9b23b51b8"
-            target="_blank"
-            rel="noopener noreferrer"
+
+          {/* COPYRIGHT */}
+
+          <p className="footer-copy">
+            © {currentYear} Zwivhuya Mathada
+          </p>
+
+
+          {/* SOCIALS */}
+
+          <div className="footer-social">
+
+            <a
+              href="https://github.com/Zwi99"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
+              <FaGithub />
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/zwivhuya-mathada-9b23b51b8"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin />
+            </a>
+
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=zwivhuyamathada58@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Email"
+            >
+              <FaEnvelope />
+            </a>
+
+          </div>
+
+
+          {/* BACK TO TOP */}
+
+          <button
+            className="back-to-top"
+            onClick={scrollToTop}
+            aria-label="Back to top"
           >
-            <FaLinkedin />
-          </a>
+            <FaArrowUp />
+          </button>
 
         </div>
 
-        <button
-          className="back-top"
-          onClick={() =>
-            window.scrollTo({
-              top: 0,
-              behavior: "smooth",
-            })
-          }
-        >
-          <FaArrowUp />
-        </button>
 
-        <p className="copyright">
-          © {new Date().getFullYear()} Zwivhuya Mathada. Built with React.
-        </p>
+        <div className="footer-bottom">
+
+          <span>
+            Software Developer · IT Support Technician · AWS Certified
+          </span>
+
+          <span>
+            Built with React
+          </span>
+
+        </div>
 
       </div>
 
