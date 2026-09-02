@@ -54,7 +54,7 @@ More projects will be added as I continue building software.
 ## 📞 Contact
 
 Email:
-your-email@example.com
+zwivhuyamathada58@gmail.com
 
 LinkedIn:
 https://www.linkedin.com/in/zwivhuya-mathada-9b23b51b8
